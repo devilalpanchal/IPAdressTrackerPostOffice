@@ -9,7 +9,7 @@ body {
     color: white;
 }
 
-.mainContainer {
+.StartContainer {
     color: white;
     display: flex;
     border: 2px solid blue;
@@ -67,4 +67,31 @@ body {
 .btstart:hover {
     background-color: rgb(193, 196, 174);
     color: black;
+}
+
+.main-section{
+    border: 2px solid red;
+    /* height:700px; */
+    padding: 50px;
+}
+.location{
+    border: 2px solid red;
+    height:700px;
+    padding: 50px;
+}
+.CurrentLocation{
+    font-size: 40px;
+    margin-left: 410px;
+    padding: 20px;
+}
+.title{
+    padding: 20px;
+    margin-left: 20px;
+    border: 2px solid red;
+}
+.Header{
+    display: flex;
+    gap: 200px;
+    justify-content: start;
+    font-size: 20px;
 }
