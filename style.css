@@ -179,3 +179,8 @@ input {
 .dateTime{
     color: white;
 }
+.nameOfCoder{
+    text-align: center;
+    font-size: 20px;
+    color: white;
+}

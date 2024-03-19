@@ -7,7 +7,7 @@ let url = 'https://jsonip.com'
 fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
-        console.log(data.ip)
+        // console.log(data.ip)
         document.querySelector('.ipAddress').innerHTML = data.ip
         document.querySelector('.ipAddress2').innerHTML = data.ip
 // console.log(data);
@@ -15,9 +15,9 @@ fetch(url)
     })
     .catch((err) => {
         let error = new Error()
-        console.log(error)
+        // console.log(error)
         error.message = 'not valid url'
-        console.log(error.message)
+        // console.log(error.message)
         document.querySelector('.ipAddress').innerHTML = error.message
     })
 
@@ -35,6 +35,9 @@ const GetStarted = document.querySelector('.btstart')
 GetStarted.addEventListener('click', () => {
 mainSection.classList.toggle('hide')
 StartContainer.classList.add('hide')
+
+
+
 })
 }
 
@@ -67,7 +70,7 @@ StartContainer.classList.add('hide')
 async function fetchDetails() {
   try {
     let ip = await fetchData();
-    console.log(ip);
+    // console.log(ip);
 
     let url1 = `https://ipapi.co/${ip}/json/`;
     let response = await fetch(url1);
@@ -80,7 +83,6 @@ async function fetchDetails() {
     let region = data.region;
     let organization = data.org; 
     let hostname = data.hostname; 
-// console.log(hostname)
     document.querySelector('.latitude').innerHTML = lat;
     document.querySelector('.longitude').innerHTML = lon;
     document.querySelector('.city').innerHTML = city;
@@ -120,6 +122,8 @@ const url02 = 'https://api.postalpincode.in/pincode/457118'
       `;
     });
     main.innerHTML = getData.join('');
+   
+
   })
   .catch((err) => {
     // console.log(err);
@@ -127,25 +131,20 @@ const url02 = 'https://api.postalpincode.in/pincode/457118'
 
 
 
-// to access post office for more information
+    // to add serch functionaliy
 
-// let info = document.querySelector('.moreInformation')
-// const url03 = 'https://api.postalpincode.in/pincode/457118'
-//   fetch(url03)
-//   .then((response) => response.json())
-//   .then(() => {
-//     let getData1 = postOffices.map((item) => {
-//       return `
-//       <span style="color: white;" class="pincode12">
-//       <p>Pincode : ${item.}</p>
-//       </span>
-//       `;
-//     });
-//     info.innerHTML = getData1.join('');
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+  const search = document.querySelector('.search')
+    search.addEventListener('keyup', () => {
+
+      let postOffices = data[0].PostOffice;
+      let value= search.value
+      console.log(value)
+      let newArray = postOffices.filter((item) =>
+        item.Name.toLowerCase().includes(value)
+      )
+      
+      console.log(newArray)
+      })
 
 
 
@@ -156,17 +155,15 @@ const url02 = 'https://api.postalpincode.in/pincode/457118'
     })
 
 
-
 // to get date and time
 const dateTime = document.querySelector('.dateTime')
 const currentdate = new Date();
 const datetime = "   " + currentdate.getDay() + "/" + currentdate.getMonth()
-+ "/" + currentdate.getFullYear() + " @ " 
++ "/" + currentdate.getFullYear() + " & " 
 + currentdate.getHours() + ":" 
 + currentdate.getMinutes() + ":" + currentdate.getSeconds();
 dateTime.innerHTML = datetime
 console.log(datetime);
-
 
 
 // to time zone
@@ -175,32 +172,10 @@ const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone
 console.log(timesone);
 timeZ.innerHTML = timesone
 
+    
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-    // to add serch functionaliy
-    // input.addEventListener('keyup', () => {
-    //   let value=input.value
-    //   console.log(value)
-    //   let newArray = url02.filter((item) =>
-    //     item.Name.toLowerCase().includes(value)
-    //   )
-      
-    //   console.log(newArray)
-    //   // getContainer(newArray, tbody)
-      
-    //   })
 // this code is to check array of ip address
 // async function fetchData() {
 //   let a = await fetch('https://jsonip.com')
