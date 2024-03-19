@@ -80,7 +80,7 @@ async function fetchDetails() {
     let region = data.region;
     let organization = data.org; 
     let hostname = data.hostname; 
-console.log(hostname)
+// console.log(hostname)
     document.querySelector('.latitude').innerHTML = lat;
     document.querySelector('.longitude').innerHTML = lon;
     document.querySelector('.city').innerHTML = city;
@@ -129,26 +129,64 @@ const url02 = 'https://api.postalpincode.in/pincode/457118'
 
 // to access post office for more information
 
-let info = document.querySelector('.InfoofYou')
-const url03 = 'https://api.postalpincode.in/pincode/457118'
-  fetch(url03)
-  .then((response) => response.json())
-  .then((data) => {
-    let postOffices = data[0].PostOffice; // Access the PostOffice array
-    console.log(postOffices);
-    let pincode = data.pincode
-    console.log(pincode);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+// let info = document.querySelector('.moreInformation')
+// const url03 = 'https://api.postalpincode.in/pincode/457118'
+//   fetch(url03)
+//   .then((response) => response.json())
+//   .then(() => {
+//     let getData1 = postOffices.map((item) => {
+//       return `
+//       <span style="color: white;" class="pincode12">
+//       <p>Pincode : ${item.}</p>
+//       </span>
+//       `;
+//     });
+//     info.innerHTML = getData1.join('');
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 
+
+
+  // to return front Page
   const goBack = document.querySelector('.goBack')
   goBack.addEventListener('click',()=>{
-  // mainSection.classList.toggle('hide')
   document.location.reload()
-  
     })
+
+
+
+// to get date and time
+const dateTime = document.querySelector('.dateTime')
+const currentdate = new Date();
+const datetime = "   " + currentdate.getDay() + "/" + currentdate.getMonth()
++ "/" + currentdate.getFullYear() + " @ " 
++ currentdate.getHours() + ":" 
++ currentdate.getMinutes() + ":" + currentdate.getSeconds();
+dateTime.innerHTML = datetime
+console.log(datetime);
+
+
+
+// to time zone
+const timeZ = document.querySelector('.timeZ')
+const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone
+console.log(timesone);
+timeZ.innerHTML = timesone
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     // to add serch functionaliy
