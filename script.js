@@ -1,8 +1,9 @@
 
 
-let url = 'https://jsonip.com'
 
 async function fetchData() {
+let url = 'https://jsonip.com'
+
 fetch(url)
     .then((resp) => resp.json())
     .then((data) => {
@@ -41,29 +42,70 @@ StartContainer.classList.add('hide')
 
 // currently it is not working
 
+// async function fetchDetails() {
+//   let ip = await fetchData()
+//   console.log(ip)
+//   let url1 = `https://ipapi.co/${ip}/json/`
+//   let response = await fetch(url)
+//   let data = await response.json()
+//   console.log(data)
+//   // let city = data.city
+//   // let lat = data.latitude
+//   // let lon = data.longitude
+//   // document.querySelector('.iframe').src = `https://maps.google.com/maps?q=${lat}, ${lon}&z=15&output=embed`
+//   // console.log(lat);
+//   // console.log(lon);
+// }
+// fetchDetails()
+
+// async function fetchData() {
+//   let response = await fetch('https://jsonip.com');
+//   let data = await response.json();
+//   return data.ip;
+// }
+
 async function fetchDetails() {
-  let ip = await fetchData()
-  console.log(ip)
-  let url1 = `https://ipapi.co/${ip}/json/`
-  let response = await fetch(url1)
-  let data = await response.json()
-  console.log(data)
-  let city = data.city
-  let lat = data.latitude
-  let lon = data.longitude
-  document.querySelector('.iframe').src = `https://maps.google.com/maps?q=${lat}, ${lon}&z=15&output=embed`
-  console.log(lat);
-  console.log(lon);
+  try {
+    let ip = await fetchData();
+    console.log(ip);
+
+    let url1 = `https://ipapi.co/${ip}/json/`;
+    let response = await fetch(url1);
+    let data = await response.json();
+    console.log(data);
+
+    let lat = data.latitude;
+    let lon = data.longitude;
+    let city = data.City; 
+    let region = data.region;
+    let organization = data.org; 
+    let hostname = data.hostname; 
+console.log(hostname)
+    document.querySelector('.latitude').innerHTML = lat;
+    document.querySelector('.longitude').innerHTML = lon;
+    document.querySelector('.city').innerHTML = city;
+    document.querySelector('.region').innerHTML = region;
+    document.querySelector('.organization').innerHTML = organization;
+    document.querySelector('.hostName').innerHTML = hostname;
+
+    document.querySelector('iframe').src = `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
+  } catch (error) {
+    console.error("Error:", error);
+  }
 }
-fetchDetails()
+
+fetchDetails();
+fetchData()
+
+
 
 
 
 // to access post office array
 
 let main = document.querySelector('.main')
-
-  fetch('https://api.postalpincode.in/pincode/457118')
+const url02 = 'https://api.postalpincode.in/pincode/457118'
+  fetch(url02)
   .then((response) => response.json())
   .then((data) => {
     let postOffices = data[0].PostOffice; // Access the PostOffice array
@@ -74,12 +116,31 @@ let main = document.querySelector('.main')
       <p>Status : ${item.DeliveryStatus}</p>
       <p>District : ${item.District}</p>
       <p>Division : ${item.Division}</p>
-      </div>`;
+      </div>
+      `;
     });
     main.innerHTML = getData.join('');
   })
   .catch((err) => {
     // console.log(err);
+  });
+
+
+
+// to access post office for more information
+
+let info = document.querySelector('.InfoofYou')
+const url03 = 'https://api.postalpincode.in/pincode/457118'
+  fetch(url03)
+  .then((response) => response.json())
+  .then((data) => {
+    let postOffices = data[0].PostOffice; // Access the PostOffice array
+    console.log(postOffices);
+    let pincode = data.pincode
+    console.log(pincode);
+  })
+  .catch((err) => {
+    console.log(err);
   });
 
   const goBack = document.querySelector('.goBack')
@@ -89,6 +150,19 @@ let main = document.querySelector('.main')
   
     })
 
+
+    // to add serch functionaliy
+    // input.addEventListener('keyup', () => {
+    //   let value=input.value
+    //   console.log(value)
+    //   let newArray = url02.filter((item) =>
+    //     item.Name.toLowerCase().includes(value)
+    //   )
+      
+    //   console.log(newArray)
+    //   // getContainer(newArray, tbody)
+      
+    //   })
 // this code is to check array of ip address
 // async function fetchData() {
 //   let a = await fetch('https://jsonip.com')
