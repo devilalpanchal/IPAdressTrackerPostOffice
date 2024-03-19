@@ -48,7 +48,7 @@ async function fetchDetails() {
   let response = await fetch(url1)
   let data = await response.json()
   console.log(data)
-  // let city = data.city
+  let city = data.city
   let lat = data.latitude
   let lon = data.longitude
   document.querySelector('.iframe').src = `https://maps.google.com/maps?q=${lat}, ${lon}&z=15&output=embed`
@@ -79,7 +79,7 @@ let main = document.querySelector('.main')
     main.innerHTML = getData.join('');
   })
   .catch((err) => {
-    console.log(err);
+    // console.log(err);
   });
 
   const goBack = document.querySelector('.goBack')
