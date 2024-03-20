@@ -16,14 +16,13 @@ body {
 .StartContainer {
   color: white;
   display: flex;
-  gap: 50px;
+  gap: 20px;
 }
 
 .First-section {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  align-self: center;
   width: 70%;
 }
 

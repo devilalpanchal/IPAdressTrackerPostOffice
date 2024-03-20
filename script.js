@@ -9,21 +9,7 @@ GetStarted.addEventListener("click", () => {
   mainSection.classList.toggle("hide");
   StartContainer.classList.add("hide");
 
-
-
-  // if (userPincode   == null || userPincode   !== null) {
-  //   console.log('good moarnig bhai');
-  //   mainSection.classList.add("hide");
-  // } else {
-  //   StartContainer.classList.add("hide");
-  //   console.log('sorry bhai');
-  //   // mainSection.classList.t("hide");
-  // }
-  
-
-
 // to access post office array
-
 let main = document.querySelector(".main");
   // to User  pincode number
 let userPincode = prompt('Write Your Pincode here To Show Your PostOffice Data')
@@ -47,7 +33,7 @@ fetch(url02)
     main.innerHTML = getData.join("");
   })
   .catch((err) => {
-    // console.log(err);
+    console.log(err);
   });
 
 
@@ -102,30 +88,23 @@ const datetime =
   " : " +
   currentdate.getSeconds();
 dateTime.innerHTML = datetime;
-// console.log(datetime);
+// console.log(datetime);/
+
+
+
+
 
 // to time zone
+
 // const timeZ = document.querySelector(".timeZ");
 // const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 // console.log(timesone);
 // timeZ.innerHTML = timesone;
 
-// to add serch functionaliy not working
-// const search = document.querySelector('.search')
-//   search.addEventListener('keyup', () => {
-
-//     let postOffices = data[0].PostOffice;
-//     let value= search.value
-//     console.log(value)
-//     let newArray = postOffices.filter((item) =>
-//       item.Name.toLowerCase().includes(value)
-//     )
-
-//     console.log(newArray)
-//     })
 
 
 // this code is to check array of ip address
+
 // async function fetchData() {
 //   let a = await fetch('https://jsonip.com')
 //   console.log(a)
@@ -135,6 +114,7 @@ dateTime.innerHTML = datetime;
 // }
 
 // this code is check the array of post office
+
 // async function fetchPostOfficeData() {
 //   let p = await fetch('https://api.postalpincode.in/pincode/457118')
 //   console.log(p);
@@ -143,7 +123,17 @@ dateTime.innerHTML = datetime;
 // }
 // fetchPostOfficeData()
 
-// jeet ka code ha ye too
-// Add input event listener to searchInput for filtering post offices
 
+
+
+// for user is get by |User
+
+  // if (userPincode   == null || userPincode   !== null) {
+  //   console.log('good moarnig bhai');
+  //   mainSection.classList.add("hide");
+  // } else {
+  //   StartContainer.classList.add("hide");
+  //   console.log('sorry bhai');
+  //   // mainSection.classList.t("hide");
+  // }
 

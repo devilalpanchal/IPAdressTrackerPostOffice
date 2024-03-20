@@ -1,0 +1,48 @@
+
+
+@media only screen and (max-width: 768px)  {
+  .StartContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+    .Start{
+      display: flex;
+      flex-direction: column;
+      gap: 50px;
+    }
+    .First-section {
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+      width: 40%;
+    }
+    .First-section > img {
+      padding: 0px;
+      margin-top: 0px;
+      width: 50px;
+      margin-left: 0px;
+    }
+    .First-section > p {
+      margin-left: 0px;
+      text-align: start;
+      width: 50px;
+      font-size: 10px;
+    }
+    .nameof {
+      font-size: 15px;
+      padding: 20px;
+      text-align: center;
+    }
+    .secondSection {
+      margin-left: 20px;
+      font-size: 10px;
+      width: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      /* text-align: center; */
+      gap: 20px;
+    }
+}
