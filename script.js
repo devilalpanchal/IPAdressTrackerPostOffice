@@ -5,14 +5,31 @@ const StartContainer = document.querySelector(".Start");
 
 const GetStarted = document.querySelector(".btstart");
 GetStarted.addEventListener("click", () => {
+
   mainSection.classList.toggle("hide");
   StartContainer.classList.add("hide");
+
+
+
+  // if (userPincode   == null || userPincode   !== null) {
+  //   console.log('good moarnig bhai');
+  //   mainSection.classList.add("hide");
+  // } else {
+  //   StartContainer.classList.add("hide");
+  //   console.log('sorry bhai');
+  //   // mainSection.classList.t("hide");
+  // }
+  
 
 
 // to access post office array
 
 let main = document.querySelector(".main");
-const url02 = "https://api.postalpincode.in/pincode/457118";
+  // to User  pincode number
+let userPincode = prompt('Write Your Pincode here To Show Your PostOffice Data')
+const url02 = `https://api.postalpincode.in/pincode/${userPincode}`;
+confirm('Done')
+
 fetch(url02)
   .then((response) => response.json())
   .then((data) => {

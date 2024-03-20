@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var user = prompt("yes, no or Cancel ?");
+      if (user !== null) {
+        // code can employ string methods
+        console.log('nothing');
+        if (user.length) {
+          if (user[0].toLowerCase() === "y") {
+            console.log("user chose 'yes'");
+          } else if (user[0].toLowerCase() === "n") {
+            console.log("user chose 'no'");
+          } else {
+            console.log("input error");
+          }
+        } else {
+          console.log("empty string");
+        }
+      } else {
+        // code cannot employ string methods on user
+        console.log("user cancelled");
+      }
+      // console.log("Bye");
+    </script>
+  </body>
+</html>

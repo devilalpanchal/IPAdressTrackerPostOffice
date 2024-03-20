@@ -5,7 +5,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: rgb(14, 2, 2);
   color: white;
 }
 
@@ -16,6 +16,7 @@ body {
 .StartContainer {
   color: white;
   display: flex;
+  gap: 50px;
 }
 
 .First-section {
@@ -23,18 +24,13 @@ body {
   justify-content: center;
   flex-direction: column;
   align-self: center;
-  width: 50%;
-}
-
-.nameof {
-  font-size: 35px;
-  padding: 20px;
-  text-align: center;
+  width: 70%;
 }
 
 .First-section > img {
   padding: 15px;
-  width: 500px;
+  margin-top: 20px;
+  width: 480px;
   margin-left: 50px;
 }
 
@@ -44,10 +40,14 @@ body {
   width: 650px;
   font-size: 23px;
 }
-
+.nameof {
+    font-size: 35px;
+    padding: 20px;
+    text-align: center;
+  }
 .secondSection {
   font-size: 20px;
-  width: 50%;
+  width: 45%;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -76,6 +76,9 @@ body {
 }
 
 .location {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
   height: 700px;
   padding: 50px;
 }
@@ -93,7 +96,7 @@ body {
 
 .Header {
   display: flex;
-  gap: 250px;
+  gap: 190px;
   justify-content: start;
   font-size: 20px;
 }
@@ -112,7 +115,6 @@ body {
 
 .moreInformation {
   padding-left: 50px;
-  margin-top: 50px;
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -121,6 +123,7 @@ body {
 .moreInformation > h1 {
   text-align: center;
   padding: 10px;
+  font-size: 40px;
 }
 
 .postOffice {
@@ -130,6 +133,7 @@ body {
 
 .postOffice > h1 {
   text-align: center;
+  margin-bottom: 30px;
 }
 
 input {
