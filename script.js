@@ -1,113 +1,25 @@
-
-
-
-async function fetchData() {
-let url = 'https://jsonip.com'
-
-fetch(url)
-    .then((resp) => resp.json())
-    .then((data) => {
-        // console.log(data.ip)
-        document.querySelector('.ipAddress').innerHTML = data.ip
-        document.querySelector('.ipAddress2').innerHTML = data.ip
-// console.log(data);
-
-    })
-    .catch((err) => {
-        let error = new Error()
-        // console.log(error)
-        error.message = 'not valid url'
-        // console.log(error.message)
-        document.querySelector('.ipAddress').innerHTML = error.message
-    })
-
-fetchData()
-
-
-
 //  to click get startted button
 
-const mainSection = document.querySelector('.main-section')
-const StartContainer = document.querySelector('.Start')
+const mainSection = document.querySelector(".main-section");
+const StartContainer = document.querySelector(".Start");
 
+const GetStarted = document.querySelector(".btstart");
+GetStarted.addEventListener("click", () => {
+  mainSection.classList.toggle("hide");
+  StartContainer.classList.add("hide");
+});
 
-const GetStarted = document.querySelector('.btstart')
-GetStarted.addEventListener('click', () => {
-mainSection.classList.toggle('hide')
-StartContainer.classList.add('hide')
-
-
-
-})
-}
-
-
-
-// currently it is not working
-
-// async function fetchDetails() {
-//   let ip = await fetchData()
-//   console.log(ip)
-//   let url1 = `https://ipapi.co/${ip}/json/`
-//   let response = await fetch(url)
-//   let data = await response.json()
-//   console.log(data)
-//   // let city = data.city
-//   // let lat = data.latitude
-//   // let lon = data.longitude
-//   // document.querySelector('.iframe').src = `https://maps.google.com/maps?q=${lat}, ${lon}&z=15&output=embed`
-//   // console.log(lat);
-//   // console.log(lon);
-// }
-// fetchDetails()
-
-// async function fetchData() {
-//   let response = await fetch('https://jsonip.com');
-//   let data = await response.json();
-//   return data.ip;
-// }
-
-async function fetchDetails() {
-  try {
-    let ip = await fetchData();
-    // console.log(ip);
-
-    let url1 = `https://ipapi.co/${ip}/json/`;
-    let response = await fetch(url1);
-    let data = await response.json();
-    console.log(data);
-
-    let lat = data.latitude;
-    let lon = data.longitude;
-    let city = data.City; 
-    let region = data.region;
-    let organization = data.org; 
-    let hostname = data.hostname; 
-    document.querySelector('.latitude').innerHTML = lat;
-    document.querySelector('.longitude').innerHTML = lon;
-    document.querySelector('.city').innerHTML = city;
-    document.querySelector('.region').innerHTML = region;
-    document.querySelector('.organization').innerHTML = organization;
-    document.querySelector('.hostName').innerHTML = hostname;
-
-    document.querySelector('iframe').src = `https://maps.google.com/maps?q=${lat},${lon}&z=15&output=embed`;
-  } catch (error) {
-    console.error("Error:", error);
-  }
-}
-
-fetchDetails();
-fetchData()
-
-
-
-
+// to return front Page
+const goBack = document.querySelector(".goBack");
+goBack.addEventListener("click", () => {
+  document.location.reload();
+});
 
 // to access post office array
 
-let main = document.querySelector('.main')
-const url02 = 'https://api.postalpincode.in/pincode/457118'
-  fetch(url02)
+let main = document.querySelector(".main");
+const url02 = "https://api.postalpincode.in/pincode/457118";
+fetch(url02)
   .then((response) => response.json())
   .then((data) => {
     let postOffices = data[0].PostOffice; // Access the PostOffice array
@@ -121,60 +33,75 @@ const url02 = 'https://api.postalpincode.in/pincode/457118'
       </div>
       `;
     });
-    main.innerHTML = getData.join('');
-   
-
+    main.innerHTML = getData.join("");
   })
   .catch((err) => {
     // console.log(err);
   });
 
-
-
-    // to add serch functionaliy
-
-  const search = document.querySelector('.search')
-    search.addEventListener('keyup', () => {
-
-      let postOffices = data[0].PostOffice;
-      let value= search.value
-      console.log(value)
-      let newArray = postOffices.filter((item) =>
-        item.Name.toLowerCase().includes(value)
-      )
-      
-      console.log(newArray)
-      })
-
-
-
-  // to return front Page
-  const goBack = document.querySelector('.goBack')
-  goBack.addEventListener('click',()=>{
-  document.location.reload()
-    })
-
-
 // to get date and time
-const dateTime = document.querySelector('.dateTime')
+const months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+const day = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+const dateTime = document.querySelector(".dateTime");
 const currentdate = new Date();
-const datetime = "   " + currentdate.getDay() + "/" + currentdate.getMonth()
-+ "/" + currentdate.getFullYear() + " & " 
-+ currentdate.getHours() + ":" 
-+ currentdate.getMinutes() + ":" + currentdate.getSeconds();
-dateTime.innerHTML = datetime
-console.log(datetime);
-
+// console.log(currentdate);
+const datetime =
+  "   " +
+  day[currentdate.getDay()] +
+  " / " +
+  months[currentdate.getMonth()] +
+  " / " +
+  currentdate.getFullYear() +
+  " & " +
+  currentdate.getHours() +
+  " : " +
+  currentdate.getMinutes() +
+  " : " +
+  currentdate.getSeconds();
+dateTime.innerHTML = datetime;
+// console.log(datetime);
 
 // to time zone
-const timeZ = document.querySelector('.timeZ')
-const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone
-console.log(timesone);
-timeZ.innerHTML = timesone
+const timeZ = document.querySelector(".timeZ");
+const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+// console.log(timesone);
+timeZ.innerHTML = timesone;
 
-    
+// to add serch functionaliy not working
 
+// const search = document.querySelector('.search')
+//   search.addEventListener('keyup', () => {
 
+//     let postOffices = data[0].PostOffice;
+//     let value= search.value
+//     console.log(value)
+//     let newArray = postOffices.filter((item) =>
+//       item.Name.toLowerCase().includes(value)
+//     )
+
+//     console.log(newArray)
+//     })
 
 // this code is to check array of ip address
 // async function fetchData() {
@@ -193,3 +120,18 @@ timeZ.innerHTML = timesone
 //   console.log(q);
 // }
 // fetchPostOfficeData()
+
+// jeet ka code ha ye too
+// Add input event listener to searchInput for filtering post offices
+//  searchInput.addEventListener('input', () => {
+//   const searchTerm = searchInput.value.trim().toLowerCase();
+//   const cards = document.querySelectorAll('.card');
+//   cards.forEach(card => {
+//       const name = card.querySelector('p:first-child span').textContent.toLowerCase();
+//       if (name.includes(searchTerm)) {
+//           card.style.display = 'block';
+//       } else {
+//           card.style.display = 'none';
+//       }
+//   });
+// });
