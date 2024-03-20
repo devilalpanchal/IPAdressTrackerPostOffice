@@ -11,7 +11,7 @@ async function fetchData() {
     })
     .catch((err) => {
       let error = new Error();
-      // console.log(error)
+      console.log(error)
       error.message = "not valid url";
       console.log(error.message);
       document.querySelector(".ipAddress").innerHTML = error.message;
@@ -43,11 +43,11 @@ async function fetchDetails() {
     document.querySelector(".hostName").innerHTML = navigator.platform;
 
     let timeZone = data.timezone;
-    // let dateandTime = data.city;
     let Pincode = data.postal;
-    // let message = data.org;
+    let message = data.city;
     document.querySelector(".timeZ").innerHTML = timeZone;
     document.querySelector(".pincodeSecond").innerHTML = Pincode;
+    document.querySelector(".Message").innerHTML = message ;
 
     document.querySelector(
       "iframe"

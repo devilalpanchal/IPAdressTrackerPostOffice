@@ -32,9 +32,9 @@
       </div>
     </div>
 
-    <div class="main-section">
-      <button class="goBack">Go Back</button>
-      <!-- <i class="fa-solid fa-backward"></i>  -->
+    <div class="main-section hide">
+      <button class="goBack">  <i class="fa-solid fa-backward"></i>  Go Back</button>
+     
 
       <div class="title">
         <h1>IP Address :- <span class="ipAddress2"> </span></h1>
@@ -55,23 +55,30 @@
       </div>
       <div class="location">
         <h1 class="CurrentLocation">Your Current Location</h1>
-        <iframe
-          class="iframe"
-          width="100%"
-          height="70%"
-          src="https://maps.google.com/maps?q=23.30944, 77.38696&z=15&output=embed"
-          frameborder="0"
-        ></iframe>
+        <!-- <div class="iFrameContianer"> -->
+            <iframe
+            class="iframe"
+            width="100%"
+            height="70%"
+            src="https://maps.google.com/maps?q=23.30944, 77.38696&z=15&output=embed"
+            frameborder="0"
+          ></iframe>
+        <!-- </div> -->
+      
       </div>
       <div class="InfoofYou">
         <div class="moreInformation">
           <h1>More Information About You</h1>
           <h3>Time Zone:- &nbsp; &nbsp; <span class="timeZ"></span></h3>
           <h3>Date and Time:- &nbsp; <span class="dateTime"></span></h3>
-          <h3>Pincode: <span class="pincodeSecond"></span></h3>
+          <h3>Pincode: &nbsp; &nbsp; <span class="pincodeSecond"></span></h3>
           <h3>
-            Message:
-            <span class="Message">Hi Welcome In My City</span>
+            Message: &nbsp; &nbsp;
+            <span>
+                Hi Welcome In My City
+                <span class="Message"></span>
+            </span>
+            
           </h3>
         </div>
       </div>
@@ -80,11 +87,15 @@
         <h1>Post Office Near You</h1>
         <input class="search" type="search" placeholder="Search By Name" />
       </div>
-      <div class="main"></div>
+      <div class="main">
+
+
+        
+      </div>
 
       <div class="nameOfCoder">
         <h3>
-          <a href="https://devilalpanchal.github.io/Personal-Portfolio/"
+          <a style="color: white;" href="https://devilalpanchal.github.io/Personal-Portfolio/"
             >Coded By Devid Panchal</a
           >
         </h3>
@@ -94,5 +105,6 @@
     <!-- to add javaScript -->
     <script src="script.js"></script>
     <script src="script2.js"></script>
+    <script src="searchfunctionality.js"></script>
   </body>
 </html>

@@ -7,13 +7,7 @@ const GetStarted = document.querySelector(".btstart");
 GetStarted.addEventListener("click", () => {
   mainSection.classList.toggle("hide");
   StartContainer.classList.add("hide");
-});
 
-// to return front Page
-const goBack = document.querySelector(".goBack");
-goBack.addEventListener("click", () => {
-  document.location.reload();
-});
 
 // to access post office array
 
@@ -25,7 +19,7 @@ fetch(url02)
     let postOffices = data[0].PostOffice; // Access the PostOffice array
     let getData = postOffices.map((item) => {
       return `<div class="card">
-      <h2>${item.Name}</h2>
+      <h2  class="br">${item.Name}</h2>
       <p>Branch  : ${item.BranchType}</p>
       <p>Status : ${item.DeliveryStatus}</p>
       <p>District : ${item.District}</p>
@@ -38,6 +32,17 @@ fetch(url02)
   .catch((err) => {
     // console.log(err);
   });
+
+
+});
+
+// to return front Page
+const goBack = document.querySelector(".goBack");
+goBack.addEventListener("click", () => {
+  document.location.reload();
+});
+
+
 
 // to get date and time
 const months = [
@@ -83,13 +88,12 @@ dateTime.innerHTML = datetime;
 // console.log(datetime);
 
 // to time zone
-const timeZ = document.querySelector(".timeZ");
-const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+// const timeZ = document.querySelector(".timeZ");
+// const timesone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 // console.log(timesone);
-timeZ.innerHTML = timesone;
+// timeZ.innerHTML = timesone;
 
 // to add serch functionaliy not working
-
 // const search = document.querySelector('.search')
 //   search.addEventListener('keyup', () => {
 
@@ -102,6 +106,7 @@ timeZ.innerHTML = timesone;
 
 //     console.log(newArray)
 //     })
+
 
 // this code is to check array of ip address
 // async function fetchData() {
@@ -123,15 +128,5 @@ timeZ.innerHTML = timesone;
 
 // jeet ka code ha ye too
 // Add input event listener to searchInput for filtering post offices
-//  searchInput.addEventListener('input', () => {
-//   const searchTerm = searchInput.value.trim().toLowerCase();
-//   const cards = document.querySelectorAll('.card');
-//   cards.forEach(card => {
-//       const name = card.querySelector('p:first-child span').textContent.toLowerCase();
-//       if (name.includes(searchTerm)) {
-//           card.style.display = 'block';
-//       } else {
-//           card.style.display = 'none';
-//       }
-//   });
-// });
+
+
