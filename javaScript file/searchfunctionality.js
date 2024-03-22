@@ -1,5 +1,7 @@
 
 
+// to search functinality of postOffice
+
 const search = document.querySelector(".search");
 const main = document.querySelector(".main");
 search.addEventListener("keyup", () => {
